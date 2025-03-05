@@ -1,13 +1,7 @@
 <?php
+use App\Http\Controllers\ItemController;
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GreetController;
-
-Route::get('/', function () {
-    return 'Hello, Laravel!';
-});
-
-
-Route::get('/greet', [GreetController::class, 'show']);
+Route::get('/', [ItemController::class, 'index'])->name('items.index');
+Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 
 
